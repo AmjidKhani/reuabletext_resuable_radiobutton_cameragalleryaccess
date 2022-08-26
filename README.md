@@ -1,16 +1,37 @@
-# anjks
+Circular profile Image  Widget
 
-A new Flutter project.
+![image](https://user-images.githubusercontent.com/74248353/186896600-121a13fb-99c2-49d9-a87c-c16e9f4c3637.png)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+Widget imageProfile() {
+    return Center(
+      child: Stack(children: <Widget>[
+        CircleAvatar(
+          radius: 80.0,
+           backgroundImage: _imageFile == null?
+           AssetImage("assets/images/profile.jpeg"):
+           FileImage(File(_imageFile!.path)) as ImageProvider,
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+        ),
+        Positioned(
+          bottom: 20.0,
+          right: 20.0,
+          child: InkWell(
+            onTap: () {
+              showModalBottomSheet(
+                context: context,
+                builder: ((builder) => bottomSheet()),
+              );
+            },
+            child: Icon(
+              Icons.camera_alt,
+              color: Colors.teal,
+              size: 28.0,
+            ),
+          ),
+        ),
+      ]),
+    );
+    
+  }
