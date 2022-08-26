@@ -5,7 +5,22 @@
 
 
 
+
+
+
+
+
+
+
+
 Circular profile Image  Widget
+
+
+
+
+
+
+/////////////////////////////////////////
 
 Widget imageProfile() {
     return Center(
